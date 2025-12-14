@@ -1,0 +1,488 @@
+/* ============================================
+   NAVBAR - Premium Cyberpunk Navigation
+   ============================================ 
+   
+   สารบัญ:
+   1. Base Navbar Styles
+   2. Logo
+   3. Navigation Links (Includes Mega Menu)
+   4. Mega Menu Dropdown
+   5. Actions (Search, Cart, User)
+   6. User Dropdown Menu
+   7. Animations
+   8. Responsive
+*/
+
+/* ============================================
+   1. BASE NAVBAR STYLES
+   ============================================ */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    z-index: 1000;
+    background: transparent;
+    /* Transparent at top */
+    backdrop-filter: none;
+    /* No blur at top for clarity */
+    -webkit-backdrop-filter: none;
+    transition: all var(--transition-normal);
+    border-bottom: 1px solid transparent;
+}
+
+.navbar--scrolled {
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 245, 255, 0.3);
+    /* Cyan border for Cyberpunk feel */
+}
+
+.navbar__container {
+    max-width: 1600px;
+    /* Wider container */
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--spacing-xl);
+}
+
+/* ============================================
+   2. LOGO
+   ============================================ */
+.navbar__logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    cursor: pointer;
+    transition: transform var(--transition-normal);
+    text-decoration: none;
+}
+
+.navbar__logo:hover {
+    transform: scale(1.05);
+}
+
+.navbar__logo-icon {
+    font-size: 1.5rem;
+    color: #00f5ff;
+    /* Cyberpunk Cyan */
+}
+
+.navbar__logo-text {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+}
+
+.navbar__logo-accent {
+    color: #00f5ff;
+}
+
+/* ============================================
+   3. NAVIGATION LINKS (Main)
+   ============================================ */
+.navbar__links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    /* Wider gap like ROG */
+    list-style: none;
+    height: 100%;
+}
+
+.navbar__link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 5px;
+}
+
+.navbar__link a {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #b0b0b0;
+    /* Muted grey text */
+    cursor: pointer;
+    transition: color 0.2s ease;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.navbar__link:hover a,
+.navbar__link--active a {
+    color: #ffffff;
+}
+
+.navbar__link-indicator {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: #00f5ff;
+    /* Cyberpunk Cyan */
+    transition: width 0.3s ease;
+}
+
+.navbar__link:hover .navbar__link-indicator,
+.navbar__link--active .navbar__link-indicator {
+    width: 100%;
+}
+
+/* Badge (HOT) */
+.navbar__badge {
+    padding: 2px 6px;
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: #ff0033;
+    color: white;
+    border-radius: 2px;
+    margin-left: 6px;
+}
+
+/* ============================================
+   4. MEGA MENU DROPDOWN
+   ============================================ */
+.navbar__mega-menu {
+    position: absolute;
+    top: 60px;
+    /* Navbar height */
+    left: 0;
+    width: 100vw;
+    /* Full width */
+    background: #111111;
+    /* Very dark grey */
+    border-top: 1px solid #333;
+    border-bottom: 3px solid #00f5ff;
+    /* Cyan accents */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+/* Special handling for Mega Menu Parent */
+.navbar__link--mega {
+    position: static;
+    /* Allows full-width dropdown */
+}
+
+.navbar__link--mega:hover .navbar__mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.navbar__mega-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.navbar__mega-column {
+    flex: 1;
+}
+
+.navbar__mega-title {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    color: #666;
+    /* Muted header */
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+}
+
+.navbar__mega-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.navbar__mega-list li a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #cccccc;
+    text-transform: none;
+    /* Keep simple style */
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.navbar__mega-list li a:hover {
+    color: #ffffff;
+    transform: translateX(5px);
+}
+
+.navbar__mega-icon {
+    font-size: 1.1rem;
+}
+
+/* Highlight Column */
+.navbar__mega-column--highlight {
+    background: rgba(0, 245, 255, 0.05);
+    /* Cyan tint */
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 245, 255, 0.1);
+}
+
+.navbar__mega-column--highlight .navbar__mega-title {
+    color: #00f5ff;
+    /* Cyan to match other elements */
+    border-color: rgba(0, 245, 255, 0.3);
+}
+
+/* ============================================
+   5. ACTIONS (Search, Cart, User)
+   ============================================ */
+.navbar__actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Search */
+.navbar__search {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.navbar__search-input {
+    width: 0;
+    padding: 5px 0;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 0.9rem;
+    transition: all var(--transition-normal);
+    opacity: 0;
+}
+
+.navbar__search--open .navbar__search-input {
+    width: 200px;
+    padding: 5px 15px;
+    background: #222;
+    border: 1px solid #444;
+    border-radius: 4px;
+    opacity: 1;
+}
+
+.navbar__search-input:focus {
+    outline: none;
+    border-color: #00f5ff;
+}
+
+.navbar__search-btn {
+    width: 36px;
+    height: 36px;
+    background: transparent;
+    border: none;
+    color: #b0b0b0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar__search-btn:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Cart */
+.navbar__cart {
+    position: relative;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    color: #b0b0b0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 50%;
+    text-decoration: none;
+}
+
+.navbar__cart:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar__cart-badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ff0033;
+    color: white;
+    font-size: 0.6rem;
+    font-weight: 700;
+    border-radius: 10px;
+}
+
+/* Login Button */
+.navbar__login-btn {
+    padding: 8px 20px;
+    background: #00f5ff;
+    border: none;
+    border-radius: 4px;
+    color: #000;
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.navbar__login-btn:hover {
+    background: #00d6de;
+    box-shadow: 0 4px 15px rgba(0, 245, 255, 0.3);
+}
+
+/* ============================================
+   6. USER DROPDOWN MENU
+   ============================================ */
+.navbar__user-menu {
+    position: relative;
+}
+
+.navbar__avatar {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #222;
+    border: 1px solid #444;
+    border-radius: 4px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.navbar__avatar:hover {
+    border-color: #00f5ff;
+    color: #00f5ff;
+}
+
+.navbar__dropdown {
+    position: absolute;
+    top: calc(100% + 15px);
+    right: 0;
+    min-width: 220px;
+    background: #111;
+    border: 1px solid #333;
+    border-bottom: 2px solid #00f5ff;
+    padding: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.2s ease;
+    z-index: 100;
+}
+
+.navbar__user-menu:hover .navbar__dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.navbar__dropdown-header {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #333;
+    margin-bottom: 10px;
+}
+
+.navbar__dropdown-name {
+    font-weight: 600;
+    color: white;
+}
+
+.navbar__dropdown-email {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.navbar__dropdown-role {
+    font-size: 0.75rem;
+    color: #00f5ff;
+    margin-top: 4px;
+    text-transform: uppercase;
+}
+
+.navbar__dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    color: #ccc;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+    text-decoration: none;
+}
+
+.navbar__dropdown-item:hover {
+    background: #222;
+    color: white;
+}
+
+.navbar__dropdown-item--admin {
+    color: #00f5ff;
+}
+
+.navbar__dropdown-item--logout:hover {
+    background: rgba(255, 0, 0, 0.1);
+    color: #ff0033;
+}
+
+/* ============================================
+   8. RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+    .navbar__links {
+        display: none;
+    }
+}

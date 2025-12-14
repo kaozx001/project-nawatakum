@@ -1,0 +1,228 @@
+/* ProductCatalog.css */
+.catalog-page {
+    padding-top: 100px;
+    /* Offset for navbar */
+    min-height: 100vh;
+    background: #0a0a0f;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+}
+
+.catalog-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    gap: 30px;
+    padding: 20px;
+}
+
+/* Sidebar */
+.catalog-sidebar {
+    width: 280px;
+    flex-shrink: 0;
+    padding: 20px;
+    background: #111116;
+    border-radius: 12px;
+    height: fit-content;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.filter-group {
+    margin-bottom: 30px;
+}
+
+.filter-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #00f5ff;
+    /* Cyan title */
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(0, 245, 255, 0.2);
+    padding-bottom: 10px;
+}
+
+.price-inputs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.price-input {
+    width: 100%;
+    background: #1a1a20;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.price-slider {
+    width: 100%;
+}
+
+.brand-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #ccc;
+    transition: color 0.2s;
+}
+
+.brand-checkbox:hover {
+    color: #fff;
+}
+
+.brand-checkbox input {
+    accent-color: #00f5ff;
+}
+
+/* Main Content */
+.catalog-main {
+    flex-grow: 1;
+}
+
+.catalog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background: #111116;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.catalog-header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.catalog-controls {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.sort-select {
+    background: #1a1a20;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.view-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #aaa;
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.view-btn.active {
+    background: #00f5ff;
+    color: #000;
+    border-color: #00f5ff;
+}
+
+/* Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.product-grid.list-view {
+    grid-template-columns: 1fr;
+}
+
+.catalog-card {
+    background: #16161c;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.list-view .catalog-card {
+    flex-direction: row;
+    height: 150px;
+}
+
+.catalog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-color: #00f5ff;
+}
+
+.catalog-card__img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background: #222;
+}
+
+.list-view .catalog-card__img {
+    width: 200px;
+    height: 100%;
+}
+
+.catalog-card__info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-grow: 1;
+}
+
+.catalog-card__title {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.catalog-card__rating {
+    font-size: 0.85rem;
+    color: #ffd700;
+}
+
+.catalog-card__price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #00f5ff;
+    margin-top: auto;
+}
+
+.catalog-card__badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff0033;
+    color: #fff;
+    padding: 3px 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 4px;
+}

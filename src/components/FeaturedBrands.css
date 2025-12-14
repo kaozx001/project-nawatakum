@@ -1,0 +1,174 @@
+/* ============================================
+   FEATURED BRANDS - Infinite Marquee Section
+   ============================================ */
+
+.brands {
+    position: relative;
+    padding: var(--spacing-3xl) 0;
+    background: var(--bg-secondary);
+    overflow: hidden;
+}
+
+.brands::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-cyan), var(--accent-purple), transparent);
+}
+
+.brands::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-purple), var(--accent-cyan), transparent);
+}
+
+.brands__container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.brands__header {
+    text-align: center;
+    padding: 0 var(--spacing-xl);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.brands__title {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+}
+
+.brands__title-accent {
+    background: var(--gradient-main);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.brands__subtitle {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* ============================================
+   MARQUEE
+   ============================================ */
+/* ============================================
+   MARQUEE
+   ============================================ */
+.brands__marquee {
+    position: relative;
+    overflow: hidden;
+    /* Gradient mask to fade edges */
+    mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
+    padding: var(--spacing-md) 0;
+}
+
+.brands__track {
+    display: flex;
+    gap: var(--spacing-xl);
+    animation: marquee 40s linear infinite;
+    width: max-content;
+    /* Ensure it takes full needed width */
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        /* Move exactly half/third based on duplication. 
+           If dupe x2 (original + copy), move -50%.
+        */
+        transform: translateX(-50%);
+    }
+}
+
+.brands__marquee:hover .brands__track {
+    animation-play-state: paused;
+}
+
+/* ============================================
+   BRAND ITEM
+   ============================================ */
+.brands__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background: var(--bg-tertiary);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-xl);
+    transition: all var(--transition-normal);
+    white-space: nowrap;
+
+    /* Fixed width for smaller look (~180px) */
+    min-width: 180px;
+    flex-shrink: 0;
+}
+
+.brands__item:hover {
+    background: rgba(0, 245, 255, 0.1);
+    border-color: var(--accent-cyan);
+    transform: scale(1.05);
+    box-shadow: var(--shadow-neon-cyan);
+    z-index: 10;
+}
+
+.brands__logo-img {
+    height: 40px;
+    /* Smaller, neat logo */
+    width: auto;
+    object-fit: contain;
+    /* Optional: Grayscale until hover? */
+    /* filter: grayscale(100%); */
+}
+
+.brands__name {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    /* Smaller text */
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: 0.05em;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+    .brands {
+        padding: var(--spacing-2xl) 0;
+    }
+
+    .brands__item {
+        padding: var(--spacing-sm) var(--spacing-md);
+        min-width: 180px;
+        /* Smaller items on mobile */
+    }
+
+    .brands__logo {
+        font-size: 1.2rem;
+    }
+
+    .brands__name {
+        font-size: 0.9rem;
+    }
+}
