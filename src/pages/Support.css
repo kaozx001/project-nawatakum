@@ -1,0 +1,204 @@
+/**
+ * ============================================
+ * 🛠️ Support Page Styles - Tech/Diagnostic Theme
+ * ============================================
+ */
+
+.support-page {
+    position: relative;
+    min-height: 100vh;
+    padding-top: 100px;
+    background: #080808;
+    color: #e0e0e0;
+    overflow-x: hidden;
+}
+
+.support-container {
+    position: relative;
+    z-index: 10;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Hero */
+.support-hero {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.scifi-badge {
+    background: rgba(0, 245, 255, 0.1);
+    color: #00f5ff;
+    padding: 4px 12px;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    border: 1px solid rgba(0, 245, 255, 0.3);
+    border-radius: 20px;
+    font-family: 'Courier New', monospace;
+}
+
+.support-hero h1 {
+    font-size: 3.5rem;
+    margin: 20px 0 10px;
+    letter-spacing: -0.02em;
+    background: linear-gradient(180deg, #fff, #888);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.support-hero p {
+    color: #888;
+    font-family: 'Courier New', monospace;
+}
+
+/* Search Matrix */
+.search-matrix {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.search-matrix input {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.search-matrix input:focus {
+    outline: none;
+    border-color: #00f5ff;
+    box-shadow: 0 0 15px rgba(0, 245, 255, 0.2);
+}
+
+.search-matrix button {
+    padding: 0 30px;
+    background: #00f5ff;
+    border: none;
+    color: #000;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 0.1em;
+    transition: 0.3s;
+}
+
+.search-matrix button:hover {
+    background: #fff;
+    box-shadow: 0 0 20px #00f5ff;
+}
+
+/* Grid Layout */
+.support-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+}
+
+@media (max-width: 768px) {
+    .support-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.support-grid h2 {
+    font-size: 1.2rem;
+    color: #00f5ff;
+    margin-bottom: 30px;
+    opacity: 0.8;
+    font-family: 'Courier New', monospace;
+}
+
+/* FAO List */
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.faq-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.faq-item:hover,
+.faq-item.active {
+    border-color: rgba(0, 245, 255, 0.5);
+    background: rgba(0, 245, 255, 0.05);
+}
+
+.faq-header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+}
+
+.toggle-icon {
+    font-family: 'Courier New', monospace;
+    color: #00f5ff;
+    font-size: 1.2rem;
+}
+
+.faq-body {
+    padding: 0 20px 20px;
+    color: #aaa;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    border-top: 1px solid rgba(0, 245, 255, 0.1);
+}
+
+/* Contact Form */
+.scifi-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    color: #888;
+    letter-spacing: 0.05em;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-family: inherit;
+    transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #00f5ff;
+    background: rgba(0, 245, 255, 0.05);
+}
+
+.full-width {
+    width: 100%;
+    margin-top: 10px;
+}

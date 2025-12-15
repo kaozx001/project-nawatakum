@@ -1,0 +1,434 @@
+/**
+ * ============================================
+ * ⚙️ Settings Page Styles - Minimal Theme
+ * ============================================
+ */
+
+/* ============================================
+   PAGE LAYOUT
+   ============================================ */
+.settings-page {
+    min-height: 100vh;
+    padding-top: 100px;
+    padding-bottom: 60px;
+    background: var(--bg-primary);
+}
+
+.settings-container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.settings-header {
+    margin-bottom: 40px;
+}
+
+.settings-header h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+}
+
+.settings-header p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+/* ============================================
+   TOAST NOTIFICATION
+   ============================================ */
+.settings-toast {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 20px;
+    background: rgba(0, 255, 136, 0.08);
+    border: 1px solid rgba(0, 255, 136, 0.2);
+    border-radius: 10px;
+    color: #00ff88;
+    font-size: 0.9rem;
+    margin-bottom: 32px;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   SECTION
+   ============================================ */
+.settings-section {
+    background: var(--bg-secondary);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+}
+
+.settings-section--danger {
+    border-color: rgba(255, 68, 102, 0.2);
+}
+
+.settings-section__header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.settings-section__icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 12px;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+}
+
+.settings-section__icon--danger {
+    background: rgba(255, 68, 102, 0.1);
+    color: #ff4466;
+}
+
+.settings-section__header h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.settings-section__header p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* ============================================
+   SETTINGS LIST
+   ============================================ */
+.settings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.settings-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.settings-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.settings-item:first-child {
+    padding-top: 0;
+}
+
+.settings-item__info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.settings-item__label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.settings-item__desc {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* ============================================
+   TOGGLE SWITCH
+   ============================================ */
+.settings-toggle {
+    position: relative;
+    width: 48px;
+    height: 26px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 13px;
+    cursor: pointer;
+    transition: background 0.25s ease;
+    flex-shrink: 0;
+}
+
+.settings-toggle--active {
+    background: var(--accent-cyan);
+}
+
+.settings-toggle__slider {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    transition: transform 0.25s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.settings-toggle--active .settings-toggle__slider {
+    transform: translateX(22px);
+}
+
+/* ============================================
+   SELECT DROPDOWN
+   ============================================ */
+.settings-select {
+    padding: 10px 36px 10px 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+}
+
+.settings-select:hover {
+    border-color: var(--accent-cyan);
+}
+
+.settings-select:focus {
+    outline: none;
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 0 2px rgba(0, 245, 255, 0.15);
+}
+
+.settings-select option {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.settings-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.settings-btn--primary {
+    background: var(--text-primary);
+    color: var(--bg-primary);
+}
+
+.settings-btn--primary:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.settings-btn--secondary {
+    background: transparent;
+    border: 1px solid var(--glass-border);
+    color: var(--text-secondary);
+}
+
+.settings-btn--secondary:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+}
+
+.settings-btn--outline {
+    background: transparent;
+    border: 1px solid var(--glass-border);
+    color: var(--text-secondary);
+    padding: 8px 16px;
+    font-size: 0.85rem;
+}
+
+.settings-btn--outline:hover {
+    border-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+}
+
+.settings-btn--danger {
+    background: rgba(255, 68, 102, 0.1);
+    color: #ff4466;
+    border: 1px solid rgba(255, 68, 102, 0.2);
+}
+
+.settings-btn--danger:hover {
+    background: #ff4466;
+    color: white;
+    border-color: #ff4466;
+}
+
+/* ============================================
+   ACTIONS
+   ============================================ */
+.settings-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--glass-border);
+}
+
+/* ============================================
+   MODAL
+   ============================================ */
+.settings-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 24px;
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.settings-modal {
+    background: var(--bg-secondary);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 32px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    animation: scaleIn 0.2s ease;
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.settings-modal__icon {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 68, 102, 0.1);
+    border-radius: 50%;
+    color: #ff4466;
+}
+
+.settings-modal h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+}
+
+.settings-modal p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 28px;
+}
+
+.settings-modal__actions {
+    display: flex;
+    gap: 12px;
+}
+
+.settings-modal__actions .settings-btn {
+    flex: 1;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 600px) {
+    .settings-container {
+        padding: 0 16px;
+    }
+
+    .settings-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .settings-section {
+        padding: 20px;
+    }
+
+    .settings-section__header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .settings-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .settings-item--action {
+        flex-direction: column;
+    }
+
+    .settings-actions {
+        flex-direction: column;
+    }
+
+    .settings-actions .settings-btn {
+        width: 100%;
+    }
+
+    .settings-modal {
+        padding: 24px;
+    }
+
+    .settings-modal__actions {
+        flex-direction: column;
+    }
+}

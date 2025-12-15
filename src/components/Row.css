@@ -1,0 +1,177 @@
+/* ============================================
+   ROW - Product Category Section
+   ============================================ */
+
+.row {
+    position: relative;
+    padding: var(--spacing-2xl) 0;
+    z-index: 1;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.row__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+}
+
+.row__title-container {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.row__title-accent {
+    width: 4px;
+    height: 32px;
+    background: var(--gradient-main);
+    border-radius: var(--radius-full);
+}
+
+.row__title {
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.row__view-all {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: transparent;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-full);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.row__view-all:hover {
+    background: rgba(0, 245, 255, 0.1);
+    border-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+}
+
+.row__view-all svg {
+    transition: transform var(--transition-normal);
+}
+
+.row__view-all:hover svg {
+    transform: translateX(4px);
+}
+
+/* ============================================
+   CONTAINER & SCROLL
+   ============================================ */
+.row__container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.row__products {
+    display: flex;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-md) var(--spacing-xl);
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.row__products::-webkit-scrollbar {
+    display: none;
+}
+
+/* Force ProductCard sizing within the row to satisfy "See only 5 items" request */
+/* 100vw / 5 = 20vw. Subtracting gaps -> ~18.5vw */
+.row__products .product-card {
+    min-width: max(300px, 18.5vw) !important;
+    max-width: max(300px, 18.5vw) !important;
+    flex-shrink: 0;
+}
+
+/* ============================================
+   SCROLL BUTTONS
+   ============================================ */
+.row__scroll-btn {
+    display: none;
+    /* Hidden for auto-scroll marquee effect */
+}
+
+.row:hover .row__scroll-btn {
+    opacity: 1;
+}
+
+.row__scroll-btn:hover {
+    background: var(--accent-cyan);
+    color: var(--bg-primary);
+    border-color: var(--accent-cyan);
+    box-shadow: var(--shadow-neon-cyan);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.row__scroll-btn--left {
+    left: var(--spacing-sm);
+}
+
+.row__scroll-btn--right {
+    right: var(--spacing-sm);
+}
+
+/* Fade edges */
+.row__container::before,
+.row__container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 60px;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.row__container::before {
+    left: 0;
+    background: linear-gradient(90deg, var(--bg-primary), transparent);
+}
+
+.row__container::after {
+    right: 0;
+    background: linear-gradient(-90deg, var(--bg-primary), transparent);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+    .row__header {
+        padding: 0 var(--spacing-md);
+    }
+
+    .row__products {
+        padding: var(--spacing-md);
+        gap: var(--spacing-md);
+    }
+
+    .row__scroll-btn {
+        display: none;
+    }
+
+    .row__container::before,
+    .row__container::after {
+        width: 30px;
+    }
+
+    .row__view-all span:not(:last-child) {
+        display: none;
+    }
+}

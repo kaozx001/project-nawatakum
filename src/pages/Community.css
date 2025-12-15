@@ -1,0 +1,341 @@
+/**
+ * ============================================
+ * 🌌 Community Page Styles - Sci-Fi Theme
+ * ============================================
+ */
+
+.community-page {
+    position: relative;
+    min-height: 100vh;
+    padding-top: 80px;
+    background: #050505;
+    color: #e0e0e0;
+    overflow-x: hidden;
+}
+
+.community-container {
+    position: relative;
+    z-index: 10;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Header */
+.community-header {
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.community-header h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    background: linear-gradient(90deg, #00f5ff, #fff, #00f5ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(0, 245, 255, 0.5);
+    margin: 10px 0;
+}
+
+.community-header p {
+    font-family: 'Courier New', monospace;
+    color: #00f5ff;
+    opacity: 0.7;
+    letter-spacing: 0.05em;
+}
+
+/* Grid Layout */
+.community-grid {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 40px;
+}
+
+@media (max-width: 968px) {
+    .community-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Sci-fi Cards */
+.scifi-card {
+    background: rgba(10, 10, 10, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 245, 255, 0.2);
+    border-radius: 4px;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+.scifi-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: #00f5ff;
+    box-shadow: 0 0 10px #00f5ff;
+}
+
+.scifi-card h3 {
+    margin: 0 0 24px 0;
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+    color: #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.scifi-card h3::after {
+    content: '///';
+    color: #00f5ff;
+    font-size: 0.8em;
+}
+
+/* Stats */
+.status-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.status-dot.online {
+    background: #00ff88;
+    box-shadow: 0 0 8px #00ff88;
+}
+
+.status-dot.warning {
+    background: #ffaa00;
+    box-shadow: 0 0 8px #ffaa00;
+}
+
+.neon-text {
+    color: #00ff88;
+    text-shadow: 0 0 5px rgba(0, 255, 136, 0.5);
+}
+
+.warning-text {
+    color: #ffaa00;
+}
+
+.stat-box {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(0, 245, 255, 0.05);
+    border: 1px solid rgba(0, 245, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: #00f5ff;
+    letter-spacing: 0.2em;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+/* Squad List */
+.squad-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.squad-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.squad-item:hover {
+    background: rgba(0, 245, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.squad-icon {
+    font-size: 1.5rem;
+}
+
+.squad-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.squad-name {
+    font-weight: 600;
+    color: #fff;
+}
+
+.squad-rank {
+    font-size: 0.8rem;
+    color: #888;
+    font-family: 'Courier New', monospace;
+}
+
+/* Discussion Feed */
+.feed-actions {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.scifi-btn {
+    padding: 10px 24px;
+    background: transparent;
+    border: 1px solid rgba(0, 245, 255, 0.3);
+    color: #00f5ff;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.scifi-btn:hover,
+.scifi-btn.active {
+    background: rgba(0, 245, 255, 0.1);
+    box-shadow: 0 0 15px rgba(0, 245, 255, 0.2);
+    border-color: #00f5ff;
+    color: #fff;
+}
+
+.scifi-btn--primary {
+    background: #00f5ff;
+    color: #000;
+    font-weight: 700;
+}
+
+.scifi-btn--primary:hover {
+    background: #fff;
+    box-shadow: 0 0 20px #00f5ff;
+}
+
+.discussion-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.discussion-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px 30px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-left: 2px solid transparent;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.discussion-card:hover {
+    background: linear-gradient(90deg, rgba(0, 245, 255, 0.05), transparent);
+    border-color: rgba(0, 245, 255, 0.3);
+    border-left-color: #00f5ff;
+}
+
+.discussion-content h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.discussion-tag {
+    color: #00f5ff;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+    margin-right: 8px;
+    opacity: 0.8;
+}
+
+.discussion-meta {
+    display: flex;
+    gap: 20px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.discussion-action {
+    color: #00f5ff;
+    opacity: 0.5;
+    transition: 0.3s;
+}
+
+.discussion-card:hover .discussion-action {
+    opacity: 1;
+    transform: translateX(5px);
+}
+
+/* Banner */
+.community-banner {
+    margin-top: 40px;
+    padding: 40px;
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.8), rgba(0, 40, 40, 0.8));
+    border: 1px solid #00f5ff;
+    position: relative;
+    overflow: hidden;
+}
+
+.community-banner::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(45deg,
+            transparent,
+            transparent 10px,
+            rgba(0, 245, 255, 0.05) 10px,
+            rgba(0, 245, 255, 0.05) 20px);
+    z-index: 0;
+}
+
+.banner-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.banner-content h2 {
+    font-size: 2rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px #00f5ff;
+}
+
+.banner-content p {
+    color: #00f5ff;
+    font-family: 'Courier New', monospace;
+    margin-bottom: 25px;
+}
